@@ -1,0 +1,45 @@
+电脑系统的安全控制
+拜占庭将军模型：
+拜占庭帝国(Byzantine Empire)军队的几个师驻扎在敌城外, 每个师都由各自的将军指挥. 将军们只能通过信使相互沟通. 在观察敌情之后, 他们必须制定一个共同的行动计划, 如进攻(Attack)或者撤退(Retreat), 且只有当半数以上的将军共同发起进攻时才能取得胜利. 然而, 其中一些将军可能是叛徒, 试图阻止忠诚的将军达成一致的行动计划. 更糟糕的是, 负责消息传递的信使也可能是叛徒, 他们可能篡改或伪造消息, 也可能使得消息丢失.
+为了更加深入的理解拜占庭将军问题, 我们以三将军问题为例进行说明. 当三个将军都忠诚时, 可以通过投票确定一致的行动方案, 图2展示了一种场景, 即General A, B通过观察敌军军情并结合自身情况判断可以发起攻击, 而General C通过观察敌军军情并结合自身情况判断应当撤退. 最终三个将军经过投票表决得到结果为进攻:撤退=2:1, 所以将一同发起进攻取得胜利. 对于三个将军, 每个将军都能执行两种决策(进攻或撤退)的情况下, 共存在6中不同的场景, 图2是其中一种, 对于其他5中场景可简单地推得, 通过投票三个将军都将达成一致的行动计划
+https://zhuanlan.zhihu.com/p/107439021
+拒绝服务攻击（dos attack）
+●根据NIST SP 800-61的定义，拒绝服务是一种通过耗尽CPU、内存、带宽或磁盘空间等系统资源，来阻止或削弱对网络、系统或者应用程序的授权使用的行为。
+●拒绝服务攻击通常利用传输协议弱点、系统漏洞、服务漏洞对目标系统发起大规模进攻，利用超出目标处理能力的海量合理请求数据包消耗可用系统资源、带宽资源等，造成程序缓冲区溢出错误，致使其无法处理合法用户的请求，无法提供正常服务，最终致使网络服务瘫痪，甚至系统死机。
+●早期的拒绝服务攻击主要是利用TCP/IP协议或应用程序的缺陷，使得目标系统或应用程序崩溃。
+当前的拒绝服务攻击试图通过耗尽系统资源来达到目标系统不能为授权用户提供服务的目的。
+https://blog.csdn.net/xcxhzjl/article/details/121426791
+Assumption 1: (DoS Frequency). There exist constants η1 ≥  0 and τ>0
+such that  n(0,t) ≤ η1 + t / τ  (9)  for all t ≥ 0,
+wheren(0,t) denotes the number of DoS occurring  on the interval [0,t).
+Assumption 2: (DoS Duration). There exist constants η2 ≥ 0  and T>0
+such that  |Ξ(0,t)|≤η2 + t / T  for all t ≥ 0, where Ξ(0,t)= n∈N+  An ∩[0,t]
+在分布式dos中：
+Assumption 3:  (DDoS Frequency). For channel  (i, j), there exist constants η1^ij≥0 and τ^ij > 0
+such that  n^ij(0,t) ≤ η1^ij  + t /τ^ij  (14)  for all t ≥ 0, where nij(0,t) denotes the number of DoS occurring on link {i,j} during the interval [0,t).
+Assumption 4:  (DDoS Duration). For channel  (i, j), there exist constants η2^ij  ≥0 and T^ij >0
+such that  |Ξij(0,t)|≤η2^ij  + t / T^ij  for all t ≥ 0, where Ξij(0,t)= n∈N+  Aij  n ∩[0,t].
+欺骗攻击（deception attack）
+与破坏数据可用性的DoS攻击不同，欺骗攻击是指攻击者具有访问物理代理和/或组件（例如传感器、控制器、执行器）及/或通信通道的能力，从而能够操纵网络代理之间的传感器测量数据和控制命令。因此，欺骗攻击更加隐蔽且难以检测和处理。典型的欺骗策略包括数据修改、虚假数据注入和数据替换。在本节中，我们根据以下两个方面对近年来针对欺骗攻击的一些相关多智能体安全控制研究成果进行分类：欺骗策略和攻击点。
+
+
+Robust aggregation（鲁棒聚合）
+https://zhuanlan.zhihu.com/p/576630552
+http://cjc.ict.ac.cn/online/onlinepaper/wyk-202363223505.pdf
+DP（差分隐私）与谷歌rappor算法
+什么是差分隐私（定义）
+差分隐私是一种保护数据隐私的方法，通过添加噪声来扰动原始数据，进而确保数据在输出时受单条记录的影响始终低于某个阈值,使得攻击者无法使用差分攻击推断出个体的敏感信息。
+https://www.cnblogs.com/sftsgly/articles/17501447.html
+MPC（模型预测控制）
+模型预测控制算法
+一种进阶过程控制方法，自1980年以来开始在化工炼油等过程工业得到应用，并在经济领域开始得到应用。
+MPC是一种多变量控制策略，其中涉及了：
+过程内环动态模型；控制量的历史数值；在预测区间上的一个最优值方程J。最优控制量可由以上各量求出。
+MPC最大的特点在于，相对于LQR控制而言，MPC可以考虑空间状态变量的各种约束，而LQR，PID等控制只能够考虑输入输出变量的各种约束。
+MPC可应用于线性和非线性系统。
+在当今过程控制中，PID当然是用的最多的控制方法，但MPC也超过了10%的占有率。MPC是一个总称，有着各种各样的算法。其动态矩阵控制（DMC）是代表作。DMC采用的是系统的阶跃响应曲线，其突出的特点是解决了约束控制问题。那么是DMC是怎么解决约束的呢？在这里只给出宏观的解释，而不做详细的说明。DMC把线性规划和控制问题结合起来，用线性规划解决输出约束的问题，同时解决了静态最优的问题，一石二鸟，在工业界取得了极大的成功。
+https://blog.csdn.net/qq_44940689/article/details/139808413
+Dummy Data（虚拟数据）
+
+
+https://zhuanlan.zhihu.com/p/1906620655807497264
