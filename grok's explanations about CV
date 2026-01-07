@@ -1,0 +1,55 @@
+计算机视觉与多智能体系统
+### CV 与 MAS 交叉领域的入门论文与实验推荐
+
+为了初步了解计算机视觉（CV）与多智能体系统（MAS）的交叉，我推荐以下几篇论文和实验（主要是开源代码仓库）。这些资源聚焦于协作感知、分布式决策和视觉代理等主题，从综述到具体应用，帮助你从理论到实践逐步深入。我优先选择了综述性论文（survey papers），以便快速把握整体框架；实验部分则选了GitHub上的开源项目，便于复现和实验。
+
+#### 推荐论文（从综述入手）
+这些论文多发表于顶级会议如CVPR、NeurIPS或期刊，提供理论基础和最新进展。建议从arXiv或ResearchGate下载阅读。
+
+1. **A Survey of Multi-Agent Cross Domain Cooperative Perception** (2022, MDPI Electronics)
+   作者：Kun Hua 等。
+   这是一篇综述论文，系统回顾了多智能体跨域协作感知的理论问题和研究趋势，包括CV在MAS中的应用如物体检测和环境建模。特别适合初学者，涵盖从单代理到多代理的演进，以及在自动驾驶和机器人中的案例。
+   为什么推荐：作为入门，提供广义框架，避免直接跳入技术细节。长度适中，易读。
+
+2. **Multiagent Systems: A Survey from a Machine Learning Perspective** (2000, 但更新版常见于引用)
+   作者：Peter Stone 和 Manuela Veloso。
+   这篇经典综述从机器学习角度审视MAS，讨论CV如何融入多代理协作（如学习合作动作）。虽较早，但被广泛引用，后续扩展到视觉任务如UAV协作感知。
+   为什么推荐：提供MAS基础，桥接到CV的机器学习视角。结合现代论文阅读，能看到演变。
+
+3. **A Survey of Multi-AI Agent Collaboration: Theories, Technologies and Challenges** (2025, ACM)
+   作者：未详（近期出版）。
+   聚焦多AI代理协作系统，强调CV在降低复杂任务难度、提升效率中的作用。包括理论框架、技术栈和挑战，如噪声鲁棒性。
+   为什么推荐：最新综述，覆盖2025年趋势，适合了解前沿如视觉代理在多模态环境中的协作。
+
+4. **Learning Distilled Collaboration Graph for Multi-Agent Perception** (2021, NeurIPS)
+   作者：Yiming Li 等。
+   提出协作图学习方法，用于多代理感知场景中共享CV信息（如物体检测）。包括实验验证在模拟环境中的性能。
+   为什么推荐：从实践角度入手，包含代码思路，便于过渡到实验。
+
+5. **S2R-ViT for Multi-Agent Cooperative Perception: Bridging the Gap from Simulation to Reality** (2024, arXiv)
+   作者：Jinlong Li 等。
+   引入Simulation-to-Reality转移学习框架，用于多代理协作感知，基于Vision Transformer（ViT）处理CV数据。
+   为什么推荐：聚焦CV模型在MAS中的现实部署，包含实验结果，适合感兴趣于自动驾驶的读者。
+
+其他值得一提：如“COOPERATIVE PERCEPTION IN MULTI-AGENT SYSTEMS”（2021, Purdue Thesis），详细讨论UAV中的CV系统。
+
+#### 推荐实验与开源项目（GitHub仓库）
+这些仓库提供代码实现，便于上手实验。使用Python环境，结合CV库如OpenCV/PyTorch和MAS框架如LangGraph。建议从README开始，运行demo。
+
+1. **kyegomez/awesome-multi-agent-papers** (GitHub)
+   一个 curated 列表，收集多代理研究论文，包括CV交叉的如协作感知。虽主打论文，但附带代码链接和实验想法。
+   实验建议：浏览列表，挑选论文复现（如NeurIPS 2021的协作图），使用PyTorch构建简单多代理CV模拟。
+
+2. **victordibia/designing-multiagent-systems** (GitHub)
+   从零构建LLM-enabled多代理系统，包括视觉代理示例。提供完整代码，如PicoAgents框架，用于CV任务的代理协作。
+   实验建议：运行UI交互demo，添加CV模块（如图像分类代理），测试协作感知。
+
+3. **GitHub Topic: multiagent-systems** (多个仓库集合)
+   包含644+仓库，如研究代理系统。推荐子仓库：一个实验性多代理AI，用于GitHub issue自动化，可扩展到CV（如图像标注协作）。
+   实验建议：克隆热门repo，添加CV组件（如OpenCV检测物体），模拟多UAV协作。
+
+4. **ashishpatel26/500-AI-Agents-Projects** (GitHub)
+   500+ AI代理项目列表，包括多代理教程。有一个LangGraph的多代理主管示例，可整合CV如视觉事件检测。
+   实验建议：构建简单多代理系统，一个代理处理图像输入，另一个决策协作。
+
+这些资源足够入门。如果你想深入特定论文的代码（如arXiv伴随repo），可以进一步搜索GitHub；或告诉我感兴趣的子领域，我可以推荐更多！
