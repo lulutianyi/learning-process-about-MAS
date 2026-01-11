@@ -1,0 +1,44 @@
+# main.py
+
+from agent2 import Agent
+from case import gatekeeper
+from vision import load_image, extract_features
+severity = 50
+global_belief = 0.0 # belif是一个累加性的score，并非概率
+#加载视觉环境
+img = load_image(severity)
+visual_state = extract_features(img)
+shared_beliefs = {}
+agents = [
+    Agent("Agent-A",weight=0.7),
+    Agent("Agent-B",weight=0.3),
+    
+]
+total_weight = sum(agent.weight for agent in agents)
+dialogue = []
+print("Visual state:", visual_state)
+for step in range(6):
+    print(f"\n=== Round {step} ===")
+
+    # ---------- Phase 1: 收集 belief（上一轮状态） ----------
+    shared_beliefs = {}
+    for agent in agents:
+        shared_beliefs[agent.name] = agent.belief
+
+    # ---------- Phase 2: 基于沟通调整权重 ----------
+    for agent in agents:
+        agent.update_weight(shared_beliefs)
+
+    # ---------- Phase 3: agent 行动 + belief 更新 ----------
+    weighted_sum = 0.0
+    for agent in agents:
+        contribution = agent.act(visual_state, dialogue, global_belief)
+        print(f"{agent.name} belief: {contribution:.2f} (weight={agent.weight:.2f})")
+        weighted_sum += agent.weight * contribution
+
+    global_belief = weighted_sum / total_weight
+    print(f"Global belief: {global_belief:.2f}")
+
+    if global_belief > 0.8:
+        print("Diagnosis is Pneumonia")
+        break
