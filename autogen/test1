@@ -1,0 +1,12 @@
+from autogen import AssistantAgent, UserProxyAgent, LLMConfig
+
+llm_config = LLMConfig(api_type="openai", model="gpt-4o-mini")
+
+assistant = AssistantAgent(name="assistant", llm_config=llm_config)
+user = UserProxyAgent(
+    name="user",
+    code_execution_config={"use_docker": False}  # 关键，禁用 Docker
+)
+
+user.initiate_chat(assistant, message="测试 AutoGen，无 Docker")
+print("运行成功！")
