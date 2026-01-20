@@ -1,0 +1,3 @@
+conda activate autogen_test
+python version: 3.11
+pip packages: pyautogen, autogen, openai
